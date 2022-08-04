@@ -1,0 +1,23 @@
+fragment launchFragment on Launch {
+  id
+  site
+  mission {
+    name
+  }
+}
+
+query LaunchDetails {
+  launches {
+    hasMore
+    cursor
+    launches {
+
+     ...launchFragment
+
+       mission {
+                     missionPatch(size: SMALL)
+               }
+    }
+
+  }
+}
